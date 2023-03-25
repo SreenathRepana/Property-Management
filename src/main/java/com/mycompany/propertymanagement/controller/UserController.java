@@ -20,8 +20,13 @@ public class UserController {
     public ResponseEntity<UserDTO> registration(@RequestBody UserDTO userDTO){
         userDTO= userService.register(userDTO);
         ResponseEntity<UserDTO> responseEntity=new ResponseEntity<>(userDTO, HttpStatus.CREATED);
-//         propertyService.saveProperty(propertyDTO);
-//         System.out.println(propertyDTO);
+        return responseEntity;
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserDTO> login(@RequestBody UserDTO userDTO){
+        userDTO= userService.login(userDTO.getOwnerEmail(), userDTO.getPassword());
+        ResponseEntity<UserDTO> responseEntity=new ResponseEntity<>(userDTO, HttpStatus.OK);
         return responseEntity;
     }
 
