@@ -26,11 +26,6 @@ public class PropertyEntity implements Serializable {
 
     private String description;
 
-    private String OwnerName;
-
-    @Column(name = "Email")
-    private String OwnerEmail;
-
     private String adress;
 
     private Double price;
